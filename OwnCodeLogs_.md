@@ -91,3 +91,9 @@ Successfully installed SQLAlchemy-1.3.19 Werkzeug-1.0.1 click-7.1.2 flask-1.1.2 
 ```
 {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x7f26f3778be0>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, '__file__': '/home/dhankar/temp/flask/learn-flask/app.py', '__cached__': None, 'Flask': <class 'flask.app.Flask'>, 'app': <Flask 'app'>, 'index': <function index at 0x7f26f36964c0>}
 ```
+
+#
+> Jinja Template Tags - diff from Django template tags - 
+```
+ <!-- This is Django Style - below is Flask/Jinja Style <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> -->
+```
