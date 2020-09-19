@@ -1,5 +1,52 @@
 > Start Flask 
 
+#
+
+> app_test.py
+
+```
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ ls -ltr
+total 28
+-rw-r--r-- 1 dhankar dhankar   47 Sep 19 13:29 README.md
+-rw-r--r-- 1 dhankar dhankar 2449 Sep 19 14:02 OwnCodeLogs_.md
+drwxr-xr-x 2 dhankar dhankar 4096 Sep 19 14:05 static
+-rw-r--r-- 1 dhankar dhankar  192 Sep 19 14:08 app.py
+drwxr-xr-x 2 dhankar dhankar 4096 Sep 19 15:07 templates
+-rw-r--r-- 1 dhankar dhankar  364 Sep 19 15:28 app_test.py
+drwxr-xr-x 2 dhankar dhankar 4096 Sep 19 15:29 __pycache__
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ tree
+.
+├── app.py
+├── app_test.py
+├── OwnCodeLogs_.md
+├── __pycache__
+│   └── app.cpython-38.pyc
+├── README.md
+├── static
+└── templates
+    ├── base.html
+    └── index.html
+
+3 directories, 7 files
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ python app_test.py
+F
+======================================================================
+FAIL: test_index (__main__.BasicTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "app_test.py", line 12, in test_index
+    self.assertEqual(response.data, b'Hello, World!')
+AssertionError: b'<p> random HTML </p>' != b'Hello, World!'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=1)
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
+```
+
 ```
 (drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ python app.py
 <built-in function globals>
