@@ -97,3 +97,56 @@ Successfully installed SQLAlchemy-1.3.19 Werkzeug-1.0.1 click-7.1.2 flask-1.1.2 
 ```
  <!-- This is Django Style - below is Flask/Jinja Style <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> -->
 ```
+
+#
+
+- flask_sqlalchemy - SQLALCHEMY_TRACK_MODIFICATIONS - Deprecation Warning
+
+```
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ python
+Python 3.8.5 (default, Aug  5 2020, 08:36:46) 
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from app import db
+/home/dhankar/anaconda3/envs/drf_venv/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:833: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+>>> 
+```
+
+#
+
+```
+```
+
+#
+
+#
+
+```
+```
+
+#
+#
+
+```
+```
+
+#
+#
+
+```
+```
+
+#
+#
+
+```
+```
+
+#
+#
+
+```
+```
+
+#
