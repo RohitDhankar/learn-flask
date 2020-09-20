@@ -116,6 +116,56 @@ Type "help", "copyright", "credits" or "license" for more information.
 #
 
 ```
+#@# 
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ pip install flask-mysqldb
+Collecting flask-mysqldb
+  Using cached Flask-MySQLdb-0.2.0.tar.gz (2.1 kB)
+Requirement already satisfied: Flask>=0.10 in /home/dhankar/anaconda3/envs/drf_venv/lib/python3.8/site-packages (from flask-mysqldb) (1.1.2)
+Collecting mysqlclient
+  Using cached mysqlclient-2.0.1.tar.gz (87 kB)
+    ERROR: Command errored out with exit status 1:
+     command: /home/dhankar/anaconda3/envs/drf_venv/bin/python -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-uv2nktre/mysqlclient/setup.py'"'"'; __file__='"'"'/tmp/pip-install-uv2nktre/mysqlclient/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-w7d5n4gb
+         cwd: /tmp/pip-install-uv2nktre/mysqlclient/
+    Complete output (12 lines):
+    /bin/sh: 1: mysql_config: not found
+    /bin/sh: 1: mariadb_config: not found
+    /bin/sh: 1: mysql_config: not found
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/tmp/pip-install-uv2nktre/mysqlclient/setup.py", line 15, in <module>
+        metadata, options = get_config()
+      File "/tmp/pip-install-uv2nktre/mysqlclient/setup_posix.py", line 65, in get_config
+        libs = mysql_config("libs")
+      File "/tmp/pip-install-uv2nktre/mysqlclient/setup_posix.py", line 31, in mysql_config
+        raise OSError("{} not found".format(_mysql_config_path))
+    OSError: mysql_config not found
+    ----------------------------------------
+ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
+
+#@#
+
+(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ sudo apt install libmysqlclient-dev
+[sudo] password for dhankar: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  libmysqlclient-dev
+0 upgraded, 1 newly installed, 0 to remove and 72 not upgraded.
+Need to get 992 kB of archives.
+After this operation, 6,013 kB of additional disk space will be used.
+Get:1 http://in.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmysqlclient-dev amd64 5.7.31-0ubuntu0.18.04.1 [992 kB]
+Fetched 992 kB in 5s (186 kB/s)            
+Selecting previously unselected package libmysqlclient-dev.
+(Reading database ... 332012 files and directories currently installed.)
+Preparing to unpack .../libmysqlclient-dev_5.7.31-0ubuntu0.18.04.1_amd64.deb ...
+Unpacking libmysqlclient-dev (5.7.31-0ubuntu0.18.04.1) ...
+Setting up libmysqlclient-dev (5.7.31-0ubuntu0.18.04.1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
+
 ```
 
 #
