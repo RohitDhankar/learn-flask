@@ -1,5 +1,17 @@
 #@# Search Key == #@# - this file is for recording mySQL Purge and Re-Install 
 # seems Ubuntu dpackage had removed useful packages - QGIS is no more functional
+#
+mysql -u root -p
+#
+CREATE USER 'dhankar'@'localhost' IDENTIFIED BY 'dhank_pass_root';
+#below in workbench
+ERROR 1044: Access denied for user 'dhankar'@'localhost' to database 'flask_schema'
+SQL Statement:
+CREATE SCHEMA `flask_schema`
+#below not ok for production
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'dhankar'@'localhost' WITH GRANT OPTION;
+#
+
 
 #@#
 

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `schema_flask`.`users` (
+CREATE TABLE IF NOT EXISTS `flask_schema`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,

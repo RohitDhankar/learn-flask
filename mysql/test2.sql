@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `schema_flask`.`location` (
+CREATE TABLE IF NOT EXISTS `flask_schema`.`location` (
   `city` CHAR(1) NULL,
   `country` VARCHAR(45) NULL,
   `location_id` VARCHAR(45) NOT NULL,
