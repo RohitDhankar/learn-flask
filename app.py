@@ -4,6 +4,7 @@ from datetime import datetime
 from flask_mysqldb import MySQL 
 
 app = Flask(__name__)
+# above for providing - root DIR of relative paths 
 # MySQL 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'dhankar'
@@ -29,9 +30,11 @@ class todo(db.Model):
 def index():
     # MySQL 
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM users") #SQL
+    #cur.execute("SELECT * FROM flask_schema.users")
+    cur.execute("SELECT * FROM flask_schema.mtcars")
     fetchdata = cur.fetchall()
-    print(type(fetchdata)) #<class 'tuple'>
+    #print(fetchdata) # OK
+    #print(type(fetchdata)) #<class 'tuple'>
 
 
     if request.method == 'POST':
