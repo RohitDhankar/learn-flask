@@ -14,6 +14,19 @@
 [2020-09-21 18:53:48 +0530] [26837] [INFO] Handling signal: winch
 
 ```
+#
+- running - uvicorn in front of FastAPI
+
+# 
+
+```
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ uvicorn server2:fastApp
+INFO:     Started server process [28089]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+
+```
 
 > app_test.py
 

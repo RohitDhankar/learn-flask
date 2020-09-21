@@ -28,7 +28,7 @@ def meth_flaskServer():
 
 
     #return "Hello this is the Flask Server"
-    return render_template('fServer_Index.html')#,tasks=tasks , data = fetchdata)
+    return render_template('fServer_Index.html',data = fetchdata)#,tasks=tasks , )
 
 if __name__ == "__main__":
     app_fServer.run(debug=True)    
