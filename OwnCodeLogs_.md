@@ -1,6 +1,19 @@
 > Start Flask 
 
-#
+#@#
+
+> running gunicorn in front of Flask
+
+```
+(drf_venv) dhankar@dhankar-1:~/temp/flask/learn-flask$ gunicorn server1:app_fServer
+[2020-09-21 18:53:44 +0530] [26837] [INFO] Starting gunicorn 20.0.4
+[2020-09-21 18:53:44 +0530] [26837] [INFO] Listening at: http://127.0.0.1:8000 (26837)
+[2020-09-21 18:53:44 +0530] [26837] [INFO] Using worker: sync
+[2020-09-21 18:53:44 +0530] [26839] [INFO] Booting worker with pid: 26839
+<flask_mysqldb.MySQL object at 0x7f76d30f40a0>
+[2020-09-21 18:53:48 +0530] [26837] [INFO] Handling signal: winch
+
+```
 
 > app_test.py
 

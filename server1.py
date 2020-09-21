@@ -14,7 +14,7 @@ mysql = MySQL(app_fServer)
 print(mysql) #<flask_mysqldb.MySQL object at 0x7f478c7d0f40>
 
 
-@app_fServer.route('/flaskServer',methods=['POST','GET']) # Add methods to route -decorator
+@app_fServer.route('/flaskServer',methods=['GET']) # Add methods to route -decorator
 def meth_flaskServer():
     """
     """
