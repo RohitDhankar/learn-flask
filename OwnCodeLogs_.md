@@ -193,12 +193,56 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 (base) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
 
 ```
+- AWS CLI 
 
+```
+aws ec2 describe-instance-attribute --instance-id i-0179ecbd02281a80d --attribute groupSet
+(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ aws ec2 describe-instance-attribute --instance-id i-0179ecbd02281a80d --attribute groupSet
+
+An error occurred (InvalidInstanceID.NotFound) when calling the DescribeInstanceAttribute operation: The instance ID 'i-0179ecbd02281a80d' does not exist
+
+```
 #
 
+- Public IPv4 DNS == ec2-13-235-81-66.ap-south-1.compute.amazonaws.com
+```
+(base) dhankar@dhankar-1:~/temp/flask/learn-flask/aws_instance$ ssh -i "strato.pem" ubuntu@ec2-13-235-81-66.ap-south-1.compute.amazonaws.com
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.3.0-1035-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Sep 22 14:40:10 UTC 2020
+
+  System load:  0.0               Processes:           90
+  Usage of /:   14.4% of 7.69GB   Users logged in:     0
+  Memory usage: 17%               IP address for eth0: 172.31.13.163
+  Swap usage:   0%
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-13-163:~$ 
+ubuntu@ip-172-31-13-163:~$ 
+
+```
 #
 
 ```
+
 ```
 
 #
