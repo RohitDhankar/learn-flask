@@ -154,5 +154,25 @@ Server has startup warnings:
 
 ```
 #
+- MongoDB connect with a connection string using - tls or ssl 
+#
+```
+# Source - official Mongo 
+#
+You can run mongo shell with a connection string that specifies the host and port and other connection options. For example, the following includes the tls:
+
+mongo "mongodb://mongodb0.example.com:27017/testdb?tls=true"
+
+The tls option is available starting in MongoDB 4.2. In earlier version, use the ssl option.
+
+To connect mongo shell to a replica set, you can specify in the connection string the replica set members and name:
+```
+#
+- Mongo Connection String Formats- https://docs.mongodb.com/manual/reference/connection-string/#connection-string-uri-format
+#
+```
+
+```
+#
 
 
