@@ -1,0 +1,15 @@
+- Configuring Amazon S3 event notifications
+
+The Amazon S3 notification feature enables you to receive notifications when certain events happen inyour bucket. 
+
+#
+
+To enable notifications, you must first add a notification configuration that identifies the events you want Amazon S3 to publish and the destinations where you want Amazon S3 to send the notifications. 
+
+You store this configuration in the notification subresource that is associated with a bucket.
+
+For more information, see Bucket configuration options (p. 58). Amazon S3 provides an API for you tomanage this subresource.ImportantAmazon S3 event notifications are designed to be delivered at least once. 
+
+#
+
+Typically, eventnotifications are delivered in seconds but can sometimes take a minute or longer.If two writes are made to a single non-versioned object at the same time, it is possible that onlya single event notification will be sent. If you want to ensure that an event notification is sentfor every successful write, you can enable versioning on your bucket. With versioning, everysuccessful write will create a new version of your object and will also send an event notification.Topics• Overview of notifications (p. 643)• How to enable event notifications  (p. 644)• Event notification types and destinations (p. 646)• Configuring notifications with object key name filtering (p. 648)• Granting permissions to publish event notification messages to a destination (p. 652)• Walkthrough: Configure a bucket for notifications (SNS topic or SQS queue) (p. 654)• Event message structure (p. 660)Overview of notificationsCurrently, Amazon S3 can publish notifications for the following events:• New object created events — Amazon S3 supports multiple APIs to create objects. You can requestnotification when only a specific API is used (for example, s3:ObjectCreated:Put), or you can usea wildcard (for example, s3:ObjectCreated:*) to request notification when an object is createdregardless of the API used.• Object removal events — Amazon S3 supports deletes of versioned and unversioned objects. Forinformation about object versioning, see Object Versioning (p. 117) and Using versioning (p. 494).You can request notification when an object is deleted or a versioned object is permanently deletedby using the s3:ObjectRemoved:Delete event type. Or you can request notification when a deletemarker is created for a versioned object by using s3:ObjectRemoved:DeleteMarkerCreated. Youcan also use a wildcard s3:ObjectRemoved:* to request notification anytime an object is deleted.For information about deleting versioned objects, see Deleting object versions (p. 506).• Restore object events — Amazon S3 supports the restoration of objects archived to the S3Glacier storage classes. You request to be notified of object restoration completion by usings3:ObjectRestore:Completed. You use s3:ObjectRestore:Post to request notification of theinitiation of a restore.• Reduced Redundancy Storage (RRS) object lost events — Amazon S3 sends a notification messagewhen it detects that an object of the RRS storage class has been lo
