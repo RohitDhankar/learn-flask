@@ -8,7 +8,7 @@ aws-cli/2.0.28 Python/3.7.3 Linux/5.4.0-48-generic botocore/2.0.0dev32
                                  Dload  Upload   Total   Spent    Left  Speed
 100 32.2M  100 32.2M    0     0  7981k      0  0:00:04  0:00:04 --:--:-- 7981k
 (base) dhankar@dhankar-1:~/temp/na/na$ ls 
- awscliv2.zip  'Means of file transfer (1).docx'  'METHODS TO PUT FILES ON AWS S3.docx'   s3-dg.pdf  'Uploading Files on S3 (1).docx'
+ awscliv2.zip  
 (base) dhankar@dhankar-1:~/temp/na/na$ which aws
 /usr/local/bin/aws
 (base) dhankar@dhankar-1:~/temp/na/na$ ls -l /usr/local/bin/aws
@@ -23,8 +23,7 @@ lrwxrwxrwx 1 root root 37 Jul  4 09:11 /usr/local/bin/aws -> /usr/local/aws-cli/
 (base) dhankar@dhankar-1:~/temp/na/na$ # passed the SYM-LINK to the -- ls -l --- which gave the actual path 
 (base) dhankar@dhankar-1:~/temp/na/na$ 
 (base) dhankar@dhankar-1:~/temp/na/na$ ls
- aws                 awscliv2.zip                      'METHODS TO PUT FILES ON AWS S3.docx'  'Uploading Files on S3 (1).docx'
- aws-cli_update.md  'Means of file transfer (1).docx'   s3-dg.pdf
+ aws                 awscliv2.zip                 
 (base) dhankar@dhankar-1:~/temp/na/na$ sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
 [sudo] password for dhankar: 
 You can now run: /usr/local/bin/aws --version
@@ -43,8 +42,8 @@ aws-cli/2.0.52 Python/3.7.3 Linux/5.4.0-48-generic exe/x86_64.ubuntu.18
 #
 
 [default]
-aws_access_key_id = AKIAZEVMGDRENYGLXUWC
-aws_secret_access_key = 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
+aws_access_key_id = AKIAZEVMGDRENYGLFFGC
+aws_secret_access_key = 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
 ```
 #
 
