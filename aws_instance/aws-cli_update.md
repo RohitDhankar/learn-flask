@@ -275,11 +275,11 @@ remove_bucket failed: s3://elasticbeanstalk-ap-southeast-1-628500077650 An error
 
 ```
 #
-- Delete Bucket which has content with it -- force 
+- Delete Bucket which has content within it , need to use the Flag -- force 
 - The Bucket Policy needs to be Updated in the AWS Console before we can Delete the bucket from the AWS-CLI
 - https://s3.console.aws.amazon.com/s3/buckets/elasticbeanstalk-ap-southeast-1-628500077650/?region=ap-southeast-1&tab=permissions
 #
-- below change the value within the key -- "Effect": "Deny", for the Key - "Action": "s3:DeleteBucket",
+- below change the value to - "Allow" for the key -- "Effect": "Deny", coreesponding to the Key - "Action": "s3:DeleteBucket",
 #
 ```
 {
@@ -313,7 +313,7 @@ remove_bucket failed: s3://elasticbeanstalk-ap-southeast-1-628500077650 An error
         },
         {
             "Sid": "eb-58950a8c-feb6-11e2-89e0-0800277d041b",
-            "Effect": "Deny",
+            "Effect": "Deny", # CHANGE THIS TO "Allow"
             "Principal": {
                 "AWS": "*"
             },
@@ -325,13 +325,21 @@ remove_bucket failed: s3://elasticbeanstalk-ap-southeast-1-628500077650 An error
 
 ```
 #
+- As seen below Buckets3 Deteled - 
+#
+```
+$ aws s3 rb s3://elasticbeanstalk-ap-southeast-1-628500077650 --force
+remove_bucket: elasticbeanstalk-ap-southeast-1-628500077650
+
+```
+#
 
 #
+- Name and Create a New Bucket in S3 - follow Naming Rules as seen at below link 
+- https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-s3-bucket-naming-requirements.html
 ```
-```
-#
+$ aws s3 mb s3://bucketdummystarted
+make_bucket: bucketdummystarted
 
-#
-```
 ```
 #
