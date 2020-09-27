@@ -134,7 +134,7 @@ DESCRIPTION
         "Path": "/",
         "GroupName": "MyIamGroup",
         "GroupId": "AGPAZEVMGDREKJVV5AMTK",
-        "Arn": "arn:aws:iam::628500077640:group/MyIamGroup",
+        "Arn": "arn:aws:iam::628500077650:group/MyIamGroup",
         "CreateDate": "2020-09-27T11:22:45+00:00"
     }
 }
@@ -144,7 +144,7 @@ DESCRIPTION
         "Path": "/",
         "UserName": "MyUser",
         "UserId": "AIDAZEVMGDREB7QFKPTHW",
-        "Arn": "arn:aws:iam::628500077640:user/MyUser",
+        "Arn": "arn:aws:iam::628500077650:user/MyUser",
         "CreateDate": "2020-09-27T11:23:51+00:00"
     }
 }
@@ -156,7 +156,7 @@ DESCRIPTION
             "Path": "/",
             "UserName": "MyUser",
             "UserId": "AIDAZEVMGDREB7QFKPTHW",
-            "Arn": "arn:aws:iam::628500077640:user/MyUser",
+            "Arn": "arn:aws:iam::628500077650:user/MyUser",
             "CreateDate": "2020-09-27T11:23:51+00:00"
         }
     ],
@@ -164,7 +164,7 @@ DESCRIPTION
         "Path": "/",
         "GroupName": "MyIamGroup",
         "GroupId": "AGPAZEVMGDREKJVV5AMTK",
-        "Arn": "arn:aws:iam::628500077640:group/MyIamGroup",
+        "Arn": "arn:aws:iam::628500077650:group/MyIamGroup",
         "CreateDate": "2020-09-27T11:22:45+00:00"
     }
 }
@@ -174,7 +174,7 @@ DESCRIPTION
         "Path": "/",
         "UserName": "MyUser2",
         "UserId": "AIDAZEVMGDRECYR2D5AJP",
-        "Arn": "arn:aws:iam::628500077640:user/MyUser2",
+        "Arn": "arn:aws:iam::628500077650:user/MyUser2",
         "CreateDate": "2020-09-27T11:25:12+00:00"
     }
 }
@@ -186,14 +186,14 @@ DESCRIPTION
             "Path": "/",
             "UserName": "MyUser",
             "UserId": "AIDAZEVMGDREB7QFKPTHW",
-            "Arn": "arn:aws:iam::628500077640:user/MyUser",
+            "Arn": "arn:aws:iam::628500077650:user/MyUser",
             "CreateDate": "2020-09-27T11:23:51+00:00"
         },
         {
             "Path": "/",
             "UserName": "MyUser2",
             "UserId": "AIDAZEVMGDRECYR2D5AJP",
-            "Arn": "arn:aws:iam::628500077640:user/MyUser2",
+            "Arn": "arn:aws:iam::628500077650:user/MyUser2",
             "CreateDate": "2020-09-27T11:25:12+00:00"
         }
     ],
@@ -201,7 +201,7 @@ DESCRIPTION
         "Path": "/",
         "GroupName": "MyIamGroup",
         "GroupId": "AGPAZEVMGDREKJVV5AMTK",
-        "Arn": "arn:aws:iam::628500077640:group/MyIamGroup",
+        "Arn": "arn:aws:iam::628500077650:group/MyIamGroup",
         "CreateDate": "2020-09-27T11:22:45+00:00"
     }
 }
@@ -213,7 +213,7 @@ DESCRIPTION
 #
 - ARN - Amazon Resource Name (ARN)
 ```
-arn:aws:s3:::elasticbeanstalk-ap-southeast-1-628500077640
+arn:aws:s3:::elasticbeanstalk-ap-southeast-1-628500077650
 ```
 #
 #
@@ -228,6 +228,110 @@ If the multipart upload or cleanup process is canceled by a kill command or syst
 For more information, see Multipart upload overview in the Amazon Simple Storage Service Developer Guide.
 
 
+```
+```
+#
+```
+Amazon S3/elasticbeanstalk-ap-southeast-1-628500077650
+elasticbeanstalk-ap-southeast-1-628500077650
+Buckets are globally unique containers for everything that you store in Amazon S3.	After you create a bucket, you can upload your objects (for example, your photo or video files).	By default, the permissions on an object are private, but you can set up access control policies to grant permissions to others.
+Review
+1 Files Size: 128.0 KB Target path: elasticbeanstalk-ap-southeast-1-628500077650
+Storage class
+Choose a storage class based on your use case and access requirements. Learn more  or see Amazon S3 pricing 
+
+Storage class	Designed for	Availability Zones	Min storage duration	Min billable object size	Monitoring and automation fees	Retrieval fees
+Standard	Frequently accessed data	≥ 3	-	-	-	-
+Intelligent-Tiering	Long-lived data with changing or unknown access patterns	≥ 3	30 days	-	Per-object fees apply	-
+Standard-IA	Long-lived, infrequently accessed data	≥ 3	30 days	128KB	-	Per-GB fees apply
+One Zone-IA	Long-lived, infrequently accessed, non-critical data	≥ 1	30 days	128KB	-	Per-GB fees apply
+Glacier	Archive data with retrieval times ranging from minutes to hours	≥ 3	90 days	40KB	-	Per-GB fees apply
+Glacier Deep Archive	Archive data that rarely, if ever, needs to be accessed with retrieval times in hours	≥ 3	180 days	40KB	-	Per-GB fees apply
+Reduced Redundancy (Not recommended)	Frequently accessed, non-critical data	≥ 3	-	-	-	-
+Encryption
+
+```
+#
+- uploaded a PDF file - from the Browser ( lame browser drag and drop upload )
+```
+(base) dhankar@dhankar-1:~/temp/na/na$ aws s3 ls
+2020-06-13 00:50:44 elasticbeanstalk-ap-southeast-1-628500077650
+(base) dhankar@dhankar-1:~/temp/na/na$ aws s3 ls elasticbeanstalk-ap-southeast-1-628500077650
+
+# Above command gives no File DIR Structure as no Files uploaded yet ...
+
+(base) dhankar@dhankar-1:~/temp/na/na$ aws s3 ls elasticbeanstalk-ap-southeast-1-628500077650
+2020-09-27 19:41:53     131087 Lead_Data Scientist _MachineLearning(1).pdf
+#
+
+
+```
+#
+- (AccessDenied) when calling the DeleteBucket operation: Access Denied
+```
+$ aws s3 rb s3://elasticbeanstalk-ap-southeast-1-628500077650 --force
+delete: s3://elasticbeanstalk-ap-southeast-1-628500077650/Lead_Data Scientist _MachineLearning(1).pdf
+remove_bucket failed: s3://elasticbeanstalk-ap-southeast-1-628500077650 An error occurred (AccessDenied) when calling the DeleteBucket operation: Access Denied
+
+```
+#
+- Delete Bucket which has content with it -- force 
+- The Bucket Policy needs to be Updated in the AWS Console before we can Delete the bucket from the AWS-CLI
+- https://s3.console.aws.amazon.com/s3/buckets/elasticbeanstalk-ap-southeast-1-628500077650/?region=ap-southeast-1&tab=permissions
+#
+- below change the value within the key -- "Effect": "Deny", for the Key - "Action": "s3:DeleteBucket",
+#
+```
+{
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "eb-ad78f54a-f239-4c90-adda-49e5f56cb51e",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::628500077650:role/aws-elasticbeanstalk-ec2-role"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::elasticbeanstalk-ap-southeast-1-628500077650/resources/environments/logs/*"
+        },
+        {
+            "Sid": "eb-af163bf3-d27b-4712-b795-d1e33e331ca4",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::628500077650:role/aws-elasticbeanstalk-ec2-role"
+            },
+            "Action": [
+                "s3:ListBucketVersions",
+                "s3:ListBucket",
+                "s3:GetObjectVersion",
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::elasticbeanstalk-ap-southeast-1-628500077650",
+                "arn:aws:s3:::elasticbeanstalk-ap-southeast-1-628500077650/resources/environments/*"
+            ]
+        },
+        {
+            "Sid": "eb-58950a8c-feb6-11e2-89e0-0800277d041b",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:DeleteBucket",
+            "Resource": "arn:aws:s3:::elasticbeanstalk-ap-southeast-1-628500077650"
+        }
+    ]
+}
+
+```
+#
+
+#
+```
+```
+#
+
+#
 ```
 ```
 #
