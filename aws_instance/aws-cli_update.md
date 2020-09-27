@@ -325,7 +325,7 @@ remove_bucket failed: s3://elasticbeanstalk-ap-southeast-1-628500077650 An error
 
 ```
 #
-- As seen below Buckets3 Deteled - 
+- As seen below Buckets3 Deleted - 
 #
 ```
 $ aws s3 rb s3://elasticbeanstalk-ap-southeast-1-628500077650 --force
@@ -353,5 +353,23 @@ make_bucket: bucketpythonlambdatest1
 make_bucket: bucketpythonlambdatest2
 (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask$ 
 
+```
+#
+- 2 New IAM Roles Created - one as part of the LAMBDA Function creation another for testing File Uploads from the AWS-CLI
+#
+- IAM Role ARN - arn:aws:iam::628500077640:role/lambda_s3_1
+#
+```
+(base) dhankar@dhankar-1:~/temp/flask/1/learn-flask$ aws s3 cp redis-server.md  s3://bucketpythonlambdatest
+upload: ./redis-server.md to s3://bucketpythonlambdatest/redis-server.md
+(base) dhankar@dhankar-1:~/temp/flask/1/learn-flask$ aws s3 ls bucketpythonlambdatest
+2020-09-28 00:15:09       7508 redis-server.md
+
+```
+#
+- Now change the IAM Role from the AWS-CLI and upload other Files and List the Contents of the Bucket with the command - aws s3 cp - AND - aws s3 ls
+
+#
+```
 ```
 #
