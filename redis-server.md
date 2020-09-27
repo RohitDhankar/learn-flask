@@ -87,6 +87,12 @@ $ redis-server
 
 #
 - RQ(Redis-Queue) - https://python-rq.org/
+- Source - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xxii-background-jobs
+
+> Worker processes run independently of the application and can even be located on a different system. The communication between the application and the workers is done through a message queue. The application submits a job, and then monitors its progress by interacting with the queue.
+
+>  In cases where you want to have multiple workers to have more throughput, all you need to do is run more instances of rq worker, all connected to the same queue. Then when a job shows up in the queue, any of the available worker processes will pick it up. In a production environment you will probably want to have at least as many workers as available CPUs.
+
 #
 ```
 
