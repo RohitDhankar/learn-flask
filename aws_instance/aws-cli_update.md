@@ -343,3 +343,15 @@ make_bucket: bucketdummystarted
 
 ```
 #
+- make  few S3 buckets to test with Lambda Function
+```
+(base) dhankar@dhankar-1:~/temp/flask/1/learn-flask$ aws s3 mb s3://bucketpythonlambdatest
+make_bucket: bucketpythonlambdatest
+(base) dhankar@dhankar-1:~/temp/flask/1/learn-flask$ aws s3 mb s3://bucketpythonlambdatest1
+make_bucket: bucketpythonlambdatest1
+(base) dhankar@dhankar-1:~/temp/flask/1/learn-flask$ aws s3 mb s3://bucketpythonlambdatest2
+make_bucket: bucketpythonlambdatest2
+(base) dhankar@dhankar-1:~/temp/flask/1/learn-flask$ 
+
+```
+#

@@ -103,3 +103,20 @@ $ redis-server
 
 ```
 #
+- ValueError: Functions from the __main__ module cannot be processed by workers
+> 
+
+```
+16510:M 27 Sep 21:43:58.425 * Ready to accept connections
+16510:M 27 Sep 22:43:59.041 * 1 changes in 3600 seconds. Saving...
+16510:M 27 Sep 22:43:59.042 * Background saving started by pid 19667
+19667:C 27 Sep 22:43:59.204 * DB saved on disk
+19667:C 27 Sep 22:43:59.204 * RDB: 0 MB of memory used by copy-on-write
+16510:M 27 Sep 22:43:59.242 * Background saving terminated with success
+16510:M 27 Sep 23:44:00.021 * 1 changes in 3600 seconds. Saving...
+16510:M 27 Sep 23:44:00.021 * Background saving started by pid 23034
+23034:C 27 Sep 23:44:00.093 * DB saved on disk
+23034:C 27 Sep 23:44:00.094 * RDB: 0 MB of memory used by copy-on-write
+16510:M 27 Sep 23:44:00.122 * Background saving terminated with success
+
+```
