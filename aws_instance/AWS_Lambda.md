@@ -62,3 +62,50 @@ REPORT RequestId: 6daec5cd-b027-49f1-ac8e-cc258fdaa54b	Duration: 1.13 ms	Billed 
 
 ```
 #
+- Create a SUB-DIR within the Bucket == bucketdummystarted
+- https://s3.console.aws.amazon.com/s3/buckets/bucketdummystarted/?region=us-west-1&tab=overview
+- 
+
+```
+
+```
+#
+
+- Create a new Lambda Function >> Function Named == S3GetObjects
+- 
+- https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1#/functions/S3GetObjects?tab=configuration
+
+```
+# S3GetObjects - Lambda Function 
+
+```
+#
+
+- After creating the LAMBDA Function named - 
+- Login to the S3 Section , Choose S3 Bucket , go to Properties TAB , go to EVENTS ,>> + Add notification ... 
+- https://s3.console.aws.amazon.com/s3/buckets/bucketdummystarted/?region=us-west-1&tab=properties
+
+```
+
+```
+#
+#
+```
+```
+#
+#
+```
+```
+#
+#
+```
+```
+#
+#
+```
+```
+#
+#
+```
+```
+#

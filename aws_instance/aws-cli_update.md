@@ -54,6 +54,21 @@ aws_secret_access_key = 9R/DC###$$$%%%^^^&&&###$$$%%%^^^&&&###$$$%%%^^^&&&
 region = us-west-1###$$$%%%
 ```
 #
+- Updated New Credentials for IAM Users created for Dummy Testing . Copied the values from the CSV that was downloaded from >> 
+- https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/users/MyUser?section=security_credentials
+
+```
+(base) dhankar@dhankar-1:~/.aws$ sudo gedit credentials
+#
+(base) dhankar@dhankar-1:~/.aws$ sudo gedit config
+
+[default]
+region = ap-southeast-1
+
+```
+
+
+#
 - You can use roles to delegate access to users, applications, or services that don't normally have access to your AWS resources. 
 - For example, you might want to grant users in your AWS account access to resources they don't usually have, or grant users in one AWS account access to resources in another account. 
 - Mobile App - Or you might want to allow a mobile app to use AWS resources, but not want to embed AWS keys within the app (where they can be difficult to rotate and where users can potentially extract them). 
@@ -325,7 +340,7 @@ remove_bucket failed: s3://elasticbeanstalk-ap-southeast-1-628500077650 An error
 
 ```
 #
-- As seen below Buckets3 Deleted - 
+- As seen below Bucket S3 Deleted - 
 #
 ```
 $ aws s3 rb s3://elasticbeanstalk-ap-southeast-1-628500077650 --force
@@ -369,6 +384,55 @@ upload: ./redis-server.md to s3://bucketpythonlambdatest/redis-server.md
 #
 - Now change the IAM Role from the AWS-CLI and upload other Files and List the Contents of the Bucket with the command - aws s3 cp - AND - aws s3 ls
 
+#
+- FOOBAR_Errors as seen below after Deleting Default IAM user and trying to Upload Files in SUB DIR from another IAM User 
+```
+$ aws s3 cp redis-server.md  s3://bucketpythonlambdatest/csv_files/
+upload failed: ./redis-server.md to s3://bucketpythonlambdatest/csv_files/redis-server.md An error occurred (InvalidAccessKeyId) when calling the PutObject operation: The AWS Access Key Id you provided does not exist in our records.
+# Above Solved by Adding new credentials in the - credentials and Config files 
+#
+$ cd ~/.aws
+(base) dhankar@dhankar-1:~/.aws$ ls -ltr
+total 8
+-rw------- 1 dhankar dhankar 116 Jul  4 10:57 credentials
+-rw------- 1 dhankar dhankar  29 Jul  4 11:48 config
+
+```
+#
+#
+- FOOBAR_Error as seen below after Deleting Default IAM user and trying to Upload Files in SUB DIR from another IAM User 
+```
+$ aws s3 cp redis-server.md  s3://bucketpythonlambdatest/csv_files/
+upload failed: ./redis-server.md to s3://bucketpythonlambdatest/csv_files/redis-server.md An error occurred (AccessDenied) when calling the PutObject operation: Access Denied
+```
+- Above Error -Solved for now by adding the New IAM User to the ADMIN GROUP = https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/groups/AdminDhankarGroupJul2020
+- https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/groups/AdminDhankarGroupJul2020
+- This is not the best possible solution - FOOBAR ( UPDATE)
+#
+#
+```
+$ aws s3 cp redis-server.md  s3://bucketpythonlambdatest/csv_files/
+upload: ./redis-server.md to s3://bucketpythonlambdatest/csv_files/redis-server.md
+```
+#
+#
+- FOOBAR_ERROR as seen below while creating the 
+- The notification destination service region is not valid for the bucket location constraint
+- ScreenCapture of the ERROR == 
+```
+```
+#
+#
+- FOOBAR - Note to self , had created 4 Buckets in the Regio US -West 
+- https://s3.console.aws.amazon.com/s3/home?region=us-west-1
+- Delete these buckets in case they incurr billing - the LAMBDA functions are  being now coded in the region=ap-southeast-1 , as the new IAM users were created in - region=ap-southeast-1
+```
+```
+#
+#
+```
+```
+#
 #
 ```
 ```
