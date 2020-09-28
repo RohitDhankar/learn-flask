@@ -1,12 +1,37 @@
 # Code from this script for the LAMBDA Func on AWS
 import boto3
 import json
-s3 = boto3.resource('s3')
+#import urllib3
+import urllib
+
+#s3 = boto3.resource('s3')
+s3 = boto3.client('s3')
 
 def lambda_handler(event, context):
+    #print(type(event)) #<class 'dict'>
+    #print(type(context)) #<class '__main__.LambdaContext'>
     # Get the bucket and object key from the Event
     bucket = event['Records'][0]['s3']['bucket']['name']
-    key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'])
+    print(type(bucket)) #<class 'dict'>
+    key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'],encoding = 'utf-8')
+    print(type(key)) 
+    #Example: unquote_plus('/El+Ni%C3%B1o/') yields '/El Niño/'.
+    """
+    's3.ServiceResource' object has no attribute 'get_object'
+    's3.ServiceResource' o
+    """
 
-    if key == 'abc/A.csv':
-        'copy to Table-A from "s3:///tcm-bigdata-sandbox/Config.py"'
+    try:
+        # Fetch file from S3
+        response = s3.get_object(Bucket=bucket,Key=key)
+        print(type(response))
+        text = response['Body'].read.decode()
+        data = json.loads(text)
+
+        print(type(data))
+    except Exception as excp:
+        print(excp)
+        # Handling exception code here - if reqd 
+        raise excp
+
+    

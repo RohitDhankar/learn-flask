@@ -457,9 +457,25 @@ Suffix: .csv
 
 ```
 #
-
+- test 
+- aws lambda invoke --function-name S3GetObjects  --invocation-type Event --payload '{ "key": "value" }' response.json
+{
+    "StatusCode": 202
+}
 #
 ```
+{'ResponseMetadata': 
+
+{'RequestId': 'AF1C9BB9E98D8DF4', 'HostId': 'F442SsC3VTwRandLwLgBkDtIjRTTOTuGttXSlB048C427Rp9Mk/IQGlTOmnImwbweCcEugSVZT4=', 'HTTPStatusCode': 200, 
+
+'HTTPHeaders': 
+{'x-amz-id-2': 'F442SsC3VTwRandLwLgBkDtIjRTTOTuGttXSlB048C427Rp9Mk/IQGlTOmnImwbweCcEugSVZT4=', 'x-amz-request-id': 'AF1C9BB9E98D8DF4', 'date': 'Mon, 28 Sep 2020 10:43:34 GMT', 'last-modified': 'Mon, 28 Sep 2020 10:43:31 GMT', 'etag': '"c502359c26a0931eef53b2207b2344f9"', 'accept-ranges': 'bytes', 'content-type': 'text/csv', 'content-length': '1700', 'server': 'AmazonS3'}, 'RetryAttempts': 0}, 
+'AcceptRanges': 'bytes', 
+'LastModified': datetime.datetime(2020, 9, 28, 10, 43, 31, tzinfo=tzutc()), 
+'ContentLength': 1700, 
+'ETag': '"c502359c26a0931eef53b2207b2344f9"', 
+'ContentType': 'text/csv', 'Metadata': {}, 
+'Body': <botocore.response.StreamingBody object at 0x7f7a50959be0>}
 
 ```
 #
