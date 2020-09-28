@@ -358,7 +358,7 @@ make_bucket: bucketdummystarted
 
 ```
 #
-- make  few S3 buckets to test with Lambda Function
+- Make S3 Buckets to test with Lambda Function
 ```
 (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask$ aws s3 mb s3://bucketpythonlambdatest
 make_bucket: bucketpythonlambdatest
@@ -416,9 +416,10 @@ upload: ./redis-server.md to s3://bucketpythonlambdatest/csv_files/redis-server.
 ```
 #
 #
-- FOOBAR_ERROR as seen below while creating the 
+- FOOBAR_ERROR as seen below while creating the LAMBDA FUNC
 - The notification destination service region is not valid for the bucket location constraint
 - ScreenCapture of the ERROR == 
+- Solved by changing REGION of S3 Buckets - to be same as REGION of the LAMBDA FUNC's
 ```
 ```
 #
@@ -427,13 +428,53 @@ upload: ./redis-server.md to s3://bucketpythonlambdatest/csv_files/redis-server.
 - https://s3.console.aws.amazon.com/s3/home?region=us-west-1
 - Delete these buckets in case they incurr billing - the LAMBDA functions are  being now coded in the region=ap-southeast-1 , as the new IAM users were created in - region=ap-southeast-1
 ```
+$ aws s3 mb s3://bucket-lambda-func-test
+make_bucket: bucket-lambda-func-test
+
+```
+#
+#
+- Upload CSV file into Object Location ( psudo SUB DIR ) -s3://bucket-lambda-func-test/csv_files/ , for LAMBDA Func 
+```
+aws s3 cp ~/temp/aws_instance/data/mtcars.csv  s3://bucket-lambda-func-test/csv_files/
+upload: ./mtcars.csv to s3://bucket-lambda-func-test/csv_files/mtcars.csv
+```
+#
+#
+- The LAMBDA Func and the S3 Bucket ( SUB DIR ) - s3://bucket-lambda-func-test/csv_files/ , have been linked ( associated with each other)
+
+- https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1#/functions/S3GetObjects?tab=configuration
+- below text is manually copied from the GUI of AWS at above URL
+
+```
+S3: bucket-lambda-func-test (Enabled)
+arn:aws:s3:::bucket-lambda-func-test
+Details
+Event type: ObjectCreatedByPut
+Notification name: S3_ObjectPUT_Event
+Prefix: csv_files/
+Suffix: .csv
+
+```
+#
+
+#
+```
+
 ```
 #
 #
 ```
+
 ```
 #
 #
 ```
+
+```
+#
+#
+```
+
 ```
 #
