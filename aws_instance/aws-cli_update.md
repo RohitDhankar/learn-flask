@@ -42,8 +42,8 @@ aws-cli/2.0.52 Python/3.7.3 Linux/5.4.0-48-generic exe/x86_64.ubuntu.18
 #
 
 [default]
-aws_access_key_id = AKIAZEVMGDRENYGLFFGC
-aws_secret_access_key = 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
+aws_access_key_id = A###$$$%%%^^^&&&C
+aws_secret_access_key = 9R/DC###$$$%%%^^^&&&###$$$%%%^^^&&&###$$$%%%^^^&&&
 ```
 #
 
@@ -51,7 +51,7 @@ aws_secret_access_key = 9R/DCGSTKzFk+Ph4qMpdjXeOz3slbAWmbd2abnCK
 (base) dhankar@dhankar-1:~/.aws$ sudo gedit config 
 #
 [default]
-region = us-west-1
+region = us-west-1###$$$%%%
 ```
 #
 - You can use roles to delegate access to users, applications, or services that don't normally have access to your AWS resources. 
