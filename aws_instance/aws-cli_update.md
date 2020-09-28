@@ -74,6 +74,8 @@ region = ap-southeast-1
 - Mobile App - Or you might want to allow a mobile app to use AWS resources, but not want to embed AWS keys within the app (where they can be difficult to rotate and where users can potentially extract them). 
 - Active Directory -- Sometimes you want to give AWS access to users who already have identities defined outside of AWS, such as in your corporate directory. Or, you might want to grant access to your account to third parties so that they can perform an audit on your resources. 
 
+- Similar to an IAM user, an IAM role is used to permit specific operations in AWS, but roles don’t have any credentials associated with them, and any user can assume a role, thereby gaining access to the necessary AWS service.
+
 ```
 ```
 #
@@ -383,6 +385,11 @@ upload: ./redis-server.md to s3://bucketpythonlambdatest/redis-server.md
 ```
 #
 - Now change the IAM Role from the AWS-CLI and upload other Files and List the Contents of the Bucket with the command - aws s3 cp - AND - aws s3 ls
+
+#### Lambda Functions 
+
+> Basic settings, is to control how much memory a Lambda function has and how long should this lambda
+function run. By increasing the amount of memory, you would also be increasing CPU capacity allocated to each lambda invocation. The amount of memory you would need depends on what your code is doing. Lambdas are supposed to be doing a small amount of work and terminate once finishing their jobs. 
 
 #
 - FOOBAR_Errors as seen below after Deleting Default IAM user and trying to Upload Files in SUB DIR from another IAM User 
