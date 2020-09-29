@@ -488,6 +488,8 @@ Suffix: .csv
 #
 #
 ```
+$ aws s3 cp ~/temp/aws_instance/data/mtcars.csv  s3://bucket-lambda-func-test/csv_files_1/
+upload: ./mtcars.csv to s3://bucket-lambda-func-test/csv_files_1/mtcars.csv
 
 ```
 #
