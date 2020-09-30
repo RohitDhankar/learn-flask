@@ -141,3 +141,82 @@ Love!,
  ~ Team Zappa!
 
 ```
+#
+- Installed -- pipenv 
+- when activated - (zappa)(base) - why do we get (base)
+#
+```
+dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ pip install --user pipenv
+Collecting pipenv
+  Downloading pipenv-2020.8.13-py2.py3-none-any.whl (3.9 MB)
+     |████████████████████████████████| 3.9 MB 4.2 MB/s 
+Requirement already satisfied: virtualenv-clone>=0.2.5 in /home/dhankar/.local/lib/python3.6/site-packages (from pipenv) (0.5.4)
+Requirement already satisfied: virtualenv in /usr/local/lib/python3.6/dist-packages (from pipenv) (20.0.5)
+Requirement already satisfied: pip>=18.0 in /usr/local/lib/python3.6/dist-packages (from pipenv) (20.0.2)
+Requirement already satisfied: setuptools>=36.2.1 in /usr/lib/python3/dist-packages (from pipenv) (39.0.1)
+Requirement already satisfied: certifi in /home/dhankar/.local/lib/python3.6/site-packages (from pipenv) (2019.11.28)
+Requirement already satisfied: importlib-resources<2,>=1.0; python_version < "3.7" in /usr/local/lib/python3.6/dist-packages (from virtualenv->pipenv) (1.0.2)
+Requirement already satisfied: appdirs<2,>=1.4.3 in /usr/local/lib/python3.6/dist-packages (from virtualenv->pipenv) (1.4.3)
+Requirement already satisfied: distlib<1,>=0.3.0 in /usr/local/lib/python3.6/dist-packages (from virtualenv->pipenv) (0.3.0)
+Requirement already satisfied: filelock<4,>=3.0.0 in /usr/local/lib/python3.6/dist-packages (from virtualenv->pipenv) (3.0.12)
+Requirement already satisfied: six<2,>=1.9.0 in /usr/lib/python3/dist-packages (from virtualenv->pipenv) (1.11.0)
+Requirement already satisfied: importlib-metadata<2,>=0.12; python_version < "3.8" in /home/dhankar/.local/lib/python3.6/site-packages (from virtualenv->pipenv) (1.7.0)
+Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.6/dist-packages (from importlib-metadata<2,>=0.12; python_version < "3.8"->virtualenv->pipenv) (3.0.0)
+Installing collected packages: pipenv
+Successfully installed pipenv-2020.8.13
+WARNING: You are using pip version 20.0.2; however, version 20.2.3 is available.
+You should consider upgrading via the '/usr/bin/python3 -m pip install --upgrade pip' command.
+dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ pipenv install flask
+Creating a virtualenv for this project…
+Pipfile: /home/dhankar/temp/flask/1/learn-flask/zappa/Pipfile
+Using /usr/bin/python3 (3.6.9) to create virtualenv…
+⠏ Creating virtual environment...created virtual environment CPython3.6.9.final.0-64 in 1790ms
+  creator CPython3Posix(dest=/home/dhankar/.virtualenvs/zappa-aLRHj4VL, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, via=copy, app_data_dir=/home/dhankar/.local/share/virtualenv/seed-v1)
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+
+✔ Successfully created virtual environment! 
+Virtualenv location: /home/dhankar/.virtualenvs/zappa-aLRHj4VL
+Creating a Pipfile for this project…
+Installing flask…
+Adding flask to Pipfile's [packages]…
+✔ Installation Succeeded 
+Pipfile.lock not found, creating…
+Locking [dev-packages] dependencies…
+Locking [packages] dependencies…
+Building requirements...
+Resolving dependencies...
+✔ Success! 
+Updated Pipfile.lock (8a3288)!
+Installing dependencies from Pipfile.lock (8a3288)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 0/0 — 00:00:00
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ pipenv shell
+Launching subshell in virtual environment…
+ . /home/dhankar/.virtualenvs/zappa-aLRHj4VL/bin/activate
+(base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$  . /home/dhankar/.virtualenvs/zappa-aLRHj4VL/bin/activate
+(zappa) (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ 
+(zappa) (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ 
+
+```
+#
+- have the Pipfile and Pipfile.lock -- within this DIR , do these need to be GitIgnored ? 
+- https://stackoverflow.com/a/46303305/4928635
+> The lock file tells pipenv exactly which version of each dependency needs to be installed. You will have consistency across all machines.
+
+```
+(zappa) (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ tree
+.
+├── my_app.py
+├── Pipfile
+├── Pipfile.lock
+├── reqmts_pipenv_zappa.txt
+├── zappa_codeLogs.md
+└── zappa_settings.json
+
+0 directories, 6 files
+(zappa) (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ 
+
+```
+#
