@@ -110,7 +110,7 @@ N: See apt-secure(8) manpage for repository creation and user configuration deta
 #
 ```
 sudo apt-get install -y mongodb-org
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ sudo apt-get install -y mongodb-org
+$ sudo apt-get install -y mongodb-org
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
