@@ -5,6 +5,7 @@ Other option to be tried next -- https://github.com/logandk/serverless-wsgi
 Just going by STARS - ZAPPA = 11,000 + 
 serveless-wsgi = 360 + 
 
+
 #
 
 ```
@@ -108,3 +109,35 @@ Successfully installed PyYAML-5.3.1 Werkzeug-0.16.1 argcomplete-1.12.1 boto3-1.1
 ```
 #
 
+- i am currently using a CONDA venv -- Zappa team recommends - https://docs.python-guide.org/dev/virtualenvs/
+
+
+```
+$ zappa init
+/home/dhankar/anaconda3/envs/drf_venv/lib/python3.8/site-packages/setuptools/distutils_patch.py:25: UserWarning: Distutils was imported before Setuptools. This usage is discouraged and may exhibit undesirable behaviors or errors. Please use Setuptools' objects directly or at least import Setuptools first.
+  warnings.warn(
+Oh no! An error occurred! :(
+
+==============
+
+Traceback (most recent call last):
+  File "/home/dhankar/anaconda3/envs/drf_venv/lib/python3.8/site-packages/zappa/cli.py", line 2778, in handle
+    sys.exit(cli.handle())
+  File "/home/dhankar/anaconda3/envs/drf_venv/lib/python3.8/site-packages/zappa/cli.py", line 483, in handle
+    self.init()
+  File "/home/dhankar/anaconda3/envs/drf_venv/lib/python3.8/site-packages/zappa/cli.py", line 1569, in init
+    self.check_venv()
+  File "/home/dhankar/anaconda3/envs/drf_venv/lib/python3.8/site-packages/zappa/cli.py", line 2686, in check_venv
+    raise ClickException(
+click.exceptions.ClickException: Zappa requires an active virtual environment!
+Learn more about virtual environments here: http://docs.python-guide.org/en/latest/dev/virtualenvs/
+
+==============
+
+Need help? Found a bug? Let us know! :D
+File bug reports on GitHub here: https://github.com/Miserlou/Zappa
+And join our Slack channel here: https://slack.zappa.io
+Love!,
+ ~ Team Zappa!
+
+```
