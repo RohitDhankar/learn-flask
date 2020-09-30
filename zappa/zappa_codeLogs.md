@@ -220,3 +220,118 @@ Launching subshell in virtual environment…
 
 ```
 #
+- Zappa >> zappa init >> dev >> default >>  zappa-flask-s3-dhankar >> my_app.app_zappa
+
+```
+(zappa) (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ zappa init
+
+███████╗ █████╗ ██████╗ ██████╗  █████╗
+╚══███╔╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗
+  ███╔╝ ███████║██████╔╝██████╔╝███████║
+ ███╔╝  ██╔══██║██╔═══╝ ██╔═══╝ ██╔══██║
+███████╗██║  ██║██║     ██║     ██║  ██║
+╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝     ╚═╝  ╚═╝
+
+Welcome to Zappa!
+
+Zappa is a system for running server-less Python web applications on AWS Lambda and AWS API Gateway.
+This `init` command will help you create and configure your new Zappa deployment.
+Let's get started!
+
+Your Zappa configuration can support multiple production stages, like 'dev', 'staging', and 'production'.
+What do you want to call this environment (default 'dev'): dev
+
+AWS Lambda and API Gateway are only available in certain regions. Let's check to make sure you have a profile set up in one that will work.
+We found the following profiles: default, and default_old. Which would you like us to use? (default 'default'): default
+
+Your Zappa deployments will need to be uploaded to a private S3 bucket.
+If you don't have a bucket yet, we'll create one for you too.
+What do you want to call your bucket? (default 'zappa-8sedepf6v'): zappa_flask_s3
+Invalid bucket name!
+S3 buckets must be named according to the following rules:
+* Bucket names must be unique across all existing bucket names in Amazon S3.
+* Bucket names must comply with DNS naming conventions.
+* Bucket names must be at least 3 and no more than 63 characters long.
+* Bucket names must not contain uppercase characters or underscores.
+* Bucket names must start with a lowercase letter or number.
+* Bucket names must be a series of one or more labels. Adjacent labels are separated
+  by a single period (.). Bucket names can contain lowercase letters, numbers, and
+  hyphens. Each label must start and end with a lowercase letter or a number.
+* Bucket names must not be formatted as an IP address (for example, 192.168.5.4).
+* When you use virtual hosted–style buckets with Secure Sockets Layer (SSL), the SSL
+  wildcard certificate only matches buckets that don't contain periods. To work around
+  this, use HTTP or write your own certificate verification logic. We recommend that
+  you do not use periods (".") in bucket names when using virtual hosted–style buckets.
+
+What do you want to call your bucket? (default 'zappa-8sedepf6v'): zappa-flask-s3-dhankar
+
+It looks like this is a Flask application.
+What's the modular path to your app's function?
+This will likely be something like 'your_module.app'.
+We discovered: my_app.app_zappa
+Where is your app's function? (default 'my_app.app_zappa'): my_app.app_zappa
+
+You can optionally deploy to all available regions in order to provide fast global service.
+If you are using Zappa for the first time, you probably don't want to do this!
+Would you like to deploy this application globally? (default 'n') [y/n/(p)rimary]: n
+
+Okay, here's your zappa_settings.json:
+
+{
+    "dev": {
+        "app_function": "my_app.app_zappa",
+        "aws_region": "ap-southeast-1",
+        "profile_name": "default",
+        "project_name": "zappa",
+        "runtime": "python3.6",
+        "s3_bucket": "zappa-flask-s3-dhankar"
+    }
+}
+
+Does this look okay? (default 'y') [y/n]: y
+
+Done! Now you can deploy your Zappa application by executing:
+
+	$ zappa deploy dev
+
+After that, you can update your application code with:
+
+	$ zappa update dev
+
+To learn more, check out our project page on GitHub here: https://github.com/Miserlou/Zappa
+and stop by our Slack channel here: https://slack.zappa.io
+
+Enjoy!,
+ ~ Team Zappa!
+(zappa) (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ 
+
+```
+#
+
+```
+(zappa) (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ zappa deploy dev
+Calling deploy for stage dev..
+Creating zappa-dev-ZappaLambdaExecutionRole IAM Role..
+Creating zappa-permissions policy on zappa-dev-ZappaLambdaExecutionRole IAM Role.
+Downloading and installing dependencies..
+ - markupsafe==1.1.1: Downloading
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 27.5k/27.5k [00:00<00:00, 6.41MB/s]
+Packaging project as zip.
+Uploading zappa-dev-1601447444.zip (5.3MiB)..
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 5.55M/5.55M [00:01<00:00, 5.19MB/s]
+Scheduling..
+Scheduled zappa-dev-zappa-keep-warm-handler.keep_warm_callback with expression rate(4 minutes)!
+Uploading zappa-dev-template-1601447464.json (1.6KiB)..
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 1.61k/1.61k [00:00<00:00, 8.66kB/s]
+Waiting for stack zappa-dev to create (this can take a bit)..
+ 75%|███████████████████████████████████████████████████████████████████████████████▌                          | 3/4 [00:12<00:04,  4.29s/res]
+Deploying API Gateway..
+Deployment complete!: https://khd84kp4bj.execute-api.ap-southeast-1.amazonaws.com/dev
+(zappa) (base) dhankar@dhankar-1:~/temp/flask/1/learn-flask/zappa$ 
+
+```
+#
+```
+
+```
+#
