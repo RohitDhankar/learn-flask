@@ -353,4 +353,32 @@ Deployment complete!: https://khd84kp4bj.execute-api.ap-southeast-1.amazonaws.co
 - Custom AWS IAM Roles and Policies for Execution - 
 
 #
+- Security_Remote_Env_Variables 
+- Source - https://github.com/Miserlou/Zappa#custom-aws-iam-roles-and-policies-for-execution -- sensitive credentials), you can create a file and place it in an S3 bucket to which your Zappa application has access. To do this, add the remote_env key to zappa_settings pointing to a file containing a flat JSON object, so that each key-value pair on the object will be set as an environment variable and value whenever a new lambda instance spins up.
 
+#
+- S3 file upload Event tracking Lambda Func - via - zappa_settings.json file - executing-in-response-to-aws-events
+
+- Source - https://github.com/Miserlou/Zappa/blob/93804a1b3157f0189bf062e01baab2bd4f09400d/README.md#executing-in-response-to-aws-events
+
+- In your zappa_settings.json file, define your event sources and the function you wish to execute. For instance, this will execute ```your_module.process_upload_function``` in response to new objects in your my-bucket S3 bucket. Note that ```process_upload_function``` must accept event and context parameters.
+
+```
+{
+    "production": {
+       ...
+       "events": [{
+            "function": "your_module.process_upload_function",
+            "event_source": {
+                  "arn":  "arn:aws:s3:::my-bucket",
+                  "events": [
+                    "s3:ObjectCreated:*" // Supported event types: http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#supported-notification-event-types
+                  ]
+               }
+            }],
+       ...
+    }
+}
+
+```
+#
