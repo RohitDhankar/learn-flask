@@ -1,7 +1,11 @@
 ##### ZAPPA 
 - https://github.com/Miserlou/Zappa#about
 
+Other option to be tried next -- https://github.com/logandk/serverless-wsgi
+Just going by STARS - ZAPPA = 11,000 + 
+serveless-wsgi = 360 + 
 
+#
 
 ```
 $ pip install zappa
@@ -102,3 +106,5 @@ Installing collected packages: python-dateutil, pip-tools, PyYAML, toml, jmespat
       Successfully uninstalled Werkzeug-1.0.1
 Successfully installed PyYAML-5.3.1 Werkzeug-0.16.1 argcomplete-1.12.1 boto3-1.15.8 botocore-1.18.8 cfn-flip-1.2.3 durationpy-0.5 future-0.18.2 hjson-3.0.2 jmespath-0.10.0 kappa-0.6.0 pip-tools-5.3.1 placebo-0.9.0 python-dateutil-2.6.1 python-slugify-4.0.1 s3transfer-0.3.3 text-unidecode-1.3 toml-0.10.1 tqdm-4.50.0 troposphere-2.6.2 wsgi-request-logger-0.4.6 zappa-0.51.0
 ```
+#
+
