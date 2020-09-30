@@ -350,4 +350,7 @@ Deployment complete!: https://khd84kp4bj.execute-api.ap-southeast-1.amazonaws.co
 - Finally delete the archive from your S3 bucket. 
 
 - Be aware that the default IAM role and policy created for executing Lambda applies a liberal set of permissions. These are most likely not appropriate for production deployment of important applications. See the section Custom AWS IAM Roles and Policies for Execution for more detail.
-- Custom AWS IAM Roles and Policies for Execution -  
+- Custom AWS IAM Roles and Policies for Execution - 
+
+#
+
