@@ -331,7 +331,23 @@ Deployment complete!: https://khd84kp4bj.execute-api.ap-southeast-1.amazonaws.co
 
 ```
 #
+- The Zappa created LAMBDA function on AWS == zappa-dev 
+- Function code >> The deployment package of your Lambda function "zappa-dev" is too large to enable inline code editing. However, you can still invoke your function.
+- https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1#/functions/zappa-dev?tab=configuration
+
 ```
 
 ```
 #
+- Copied instrcutions from the README.md for ZAPPA - 
+- Zappa will automatically package up your application and local virtual environment into a Lambda-compatible archive.
+- Replace any dependencies with versions precompiled for Lambda
+- Set up the function handler and necessary WSGI Middleware
+- Upload the archive to S3
+- Create and manage necessary Amazon IAM policies and roles
+- Register it as a new Lambda function
+- Create a new API Gateway resource, create WSGI-compatible routes for it, link it to the new Lambda function, 
+- Finally delete the archive from your S3 bucket. 
+
+- Be aware that the default IAM role and policy created for executing Lambda applies a liberal set of permissions. These are most likely not appropriate for production deployment of important applications. See the section Custom AWS IAM Roles and Policies for Execution for more detail.
+- Custom AWS IAM Roles and Policies for Execution -  
