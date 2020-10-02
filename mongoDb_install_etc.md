@@ -174,161 +174,168 @@ To connect mongo shell to a replica set, you can specify in the connection strin
 
 ```
 #
+- On Own Local Ubuntu 18 - Mongo Updated to latest version . 
+- Official MongoDB install - sudo apt-get install -y mongodb-org
+- Source - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 
-
-- Install REDIS 
-- Source - https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04
-
-```
-
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ sudo systemctl restart redis.service
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ sudo systemctl status redis
-● redis-server.service - Advanced key-value store
-   Loaded: loaded (/lib/systemd/system/redis-server.service; enabled; vendor preset: enabled)
-   Active: active (running) since Thu 2020-09-24 23:09:39 IST; 16s ago
-     Docs: http://redis.io/documentation,
-           man:redis-server(1)
-  Process: 29162 ExecStop=/bin/kill -s TERM $MAINPID (code=exited, status=0/SUCCESS)
-  Process: 29165 ExecStart=/usr/bin/redis-server /etc/redis/redis.conf (code=exited, status=0/SUCCESS)
- Main PID: 29178 (redis-server)
-    Tasks: 4 (limit: 4915)
-   CGroup: /system.slice/redis-server.service
-           └─29178 /usr/bin/redis-server 127.0.0.1:6379
-
-Sep 24 23:09:39 dhankar-1 systemd[1]: Starting Advanced key-value store...
-Sep 24 23:09:39 dhankar-1 systemd[1]: redis-server.service: Can't open PID file /var/run/redis/redis-server.pid (yet?) after start: No such fi
-Sep 24 23:09:39 dhankar-1 systemd[1]: Started Advanced key-value store.
-
-```
 #
-- redis-cli 
-
 ```
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ redis-cli
-127.0.0.1:6379> 
-127.0.0.1:6379> ping
-PONG
-127.0.0.1:6379> 
-127.0.0.1:6379> set test "It's working!"
+
+$ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
 OK
-127.0.0.1:6379> set test "It's work!"
+$ sudo apt-get install gnupg
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+gnupg is already the newest version (2.2.4-1ubuntu1.3).
+The following packages were automatically installed and are no longer required:
+  libgoogle-perftools4 libtcmalloc-minimal4 libyaml-cpp0.5v5 linux-hwe-5.4-headers-5.4.0-45 mongo-tools mongodb-server-core
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 31 not upgraded.
+$ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
 OK
-127.0.0.1:6379> get test
-"It's work!"
-127.0.0.1:6379> 
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse
+$ sudo apt-get update
+.........
+$ sudo apt-get install -y mongodb-org
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+mongodb-org is already the newest version (4.4.1).
+The following packages were automatically installed and are no longer required:
+  libgoogle-perftools4 libtcmalloc-minimal4 libyaml-cpp0.5v5 linux-hwe-5.4-headers-5.4.0-45 mongo-tools mongodb-server-core
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 31 not upgraded.
+#
+#
 
-```
-> As a final test, we will check whether Redis is able to persist data even after it’s been stopped or restarted. To do this, first restart the Redis instance:
-```
-    sudo systemctl restart redis
-    "It's work!"
-127.0.0.1:6379> exit
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ sudo systemctl restart redis
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ redis-cli
-127.0.0.1:6379> 
-127.0.0.1:6379> get test
-"It's work!"
-127.0.0.1:6379> 
-127.0.0.1:6379> 
+$ sudo apt autoremove
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages will be REMOVED:
+  libgoogle-perftools4 libtcmalloc-minimal4 libyaml-cpp0.5v5 linux-hwe-5.4-headers-5.4.0-45 mongo-tools mongodb-server-core
+0 upgraded, 0 newly installed, 6 to remove and 31 not upgraded.
+After this operation, 215 MB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 350291 files and directories currently installed.)
+Removing mongodb-server-core (1:3.6.3-0ubuntu1.1) ...
+Removing libgoogle-perftools4 (2.5-2.2ubuntu3) ...
+Removing libtcmalloc-minimal4 (2.5-2.2ubuntu3) ...
+Removing libyaml-cpp0.5v5:amd64 (0.5.2-4ubuntu1) ...
+Removing linux-hwe-5.4-headers-5.4.0-45 (5.4.0-45.49~18.04.2) ...
+Removing mongo-tools (3.6.3-0ubuntu1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.2) ...
+$ 
+$ echo "mongodb-org hold" | sudo dpkg --set-selections
+$ echo "mongodb-org-server hold" | sudo dpkg --set-selections
+$ echo "mongodb-org-shell hold" | sudo dpkg --set-selections
+$ echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+$ echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+$ echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+$ cd /var/lib/mongodb
+(base) dhankar@dhankar-1:/var/lib/mongodb$ ls -ltr
+total 272
+-rw------- 1 mongodb mongodb    21 Oct  1 22:09 WiredTiger.lock
+-rw------- 1 mongodb mongodb    47 Oct  1 22:09 WiredTiger
+-rw------- 1 mongodb mongodb   114 Oct  1 22:09 storage.bson
+-rw------- 1 mongodb mongodb  4096 Oct  1 22:10 index-5-465390074794491220.wt
+-rw------- 1 mongodb mongodb  4096 Oct  1 22:10 collection-4-465390074794491220.wt
+-rw------- 1 mongodb mongodb  4096 Oct  1 22:10 WiredTigerHS.wt
+-rw------- 1 mongodb mongodb 20480 Oct  1 22:10 _mdb_catalog.wt
+-rw------- 1 mongodb mongodb     6 Oct  1 22:10 mongod.lock
+-rw------- 1 mongodb mongodb 20480 Oct  1 22:10 index-1-465390074794491220.wt
+-rw------- 1 mongodb mongodb 20480 Oct  1 22:10 collection-0-465390074794491220.wt
+drwx------ 2 mongodb mongodb  4096 Oct  1 22:10 journal
+-rw------- 1 mongodb mongodb 36864 Oct  1 22:11 index-3-465390074794491220.wt
+-rw------- 1 mongodb mongodb 36864 Oct  1 22:11 collection-2-465390074794491220.wt
+-rw------- 1 mongodb mongodb  4096 Oct  1 22:11 index-6-465390074794491220.wt
+-rw------- 1 mongodb mongodb 36864 Oct  1 22:12 sizeStorer.wt
+-rw------- 1 mongodb mongodb 61440 Oct  1 22:30 WiredTiger.wt
+-rw------- 1 mongodb mongodb  1254 Oct  1 22:30 WiredTiger.turtle
+drwx------ 2 mongodb mongodb  4096 Oct  1 22:30 diagnostic.data
+(base) dhankar@dhankar-1:/var/lib/mongodb$ 
 
-```
 #
-- Binding to localhost - By default, Redis is only accessible from localhost.
+(base) dhankar@dhankar-1:/var/lib/mongodb$ ps --no-headers -o comm 1
+systemd
+(base) dhankar@dhankar-1:/var/lib/mongodb$ sudo systemctl start mongod
+(base) dhankar@dhankar-1:/var/lib/mongodb$ sudo systemctl status mongod
+● mongod.service - MongoDB Database Server
+   Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2020-10-01 22:10:36 IST; 24min ago
+     Docs: https://docs.mongodb.org/manual
+ Main PID: 22920 (mongod)
+   CGroup: /system.slice/mongod.service
+           └─22920 /usr/bin/mongod --config /etc/mongod.conf
 
-```
-################################## NETWORK #####################################
+Oct 01 22:10:36 dhankar-1 systemd[1]: Started MongoDB Database Server.
+(base) dhankar@dhankar-1:/var/lib/mongodb$ 
 
-# By default, if no "bind" configuration directive is specified, Redis listens
-# for connections from all the network interfaces available on the server.
-# It is possible to listen to just one or multiple selected interfaces using
-# the "bind" configuration directive, followed by one or more IP addresses.
 #
-# Examples:
-#
-# bind 192.168.1.100 10.0.0.1
-# bind 127.0.0.1 ::1
-#
-# ~~~ WARNING ~~~ If the computer running Redis is directly exposed to the
-# internet, binding to all the interfaces is dangerous and will expose the
-# instance to everybody on the internet. So by default we uncomment the
-# following bind directive, that will force Redis to listen only into
-# the IPv4 lookback interface address (this means Redis will be able to
-# accept connections only from clients running into the same computer it
-# is running).
-#
-# IF YOU ARE SURE YOU WANT YOUR INSTANCE TO LISTEN TO ALL THE INTERFACES
-# JUST COMMENT THE FOLLOWING LINE.
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#@#
+#### FOOBAR-- below the mongo - shell which is from Official Installs of the MongoDB-Org -- sudo apt-get install -y mongodb-org
+## -SOURCE- https://docs.mongodb.com/manual/mongo/
+#
 
-bind 127.0.0.1 ::1
+(base) dhankar@dhankar-1:/var/lib/mongodb$ sudo systemctl enable mongod
+(base) dhankar@dhankar-1:/var/lib/mongodb$ mongo
+MongoDB shell version v4.4.1
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("0cb6e1fd-5f8b-4b19-b1f8-4c52927cf410") }
+MongoDB server version: 4.4.1
+---
+The server generated these startup warnings when booting: 
+        2020-10-01T22:10:36.876+05:30: ***** SERVER RESTARTED *****
+        2020-10-01T22:10:36.882+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2020-10-01T22:10:37.911+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
 
-# Protected mode is a layer of security protection, in order to avoid that
-# Redis instances left open on the internet are accessed and exploited.
-#
-# When protected mode is on and if:
-#
-# 1) The server is not binding explicitly to a set of addresses using the
-#    "bind" directive.
-# 2) No password is configured.
-#
-# The server only accepts connections from clients connecting from the
-# IPv4 and IPv6 loopback addresses 127.0.0.1 and ::1, and from Unix domain
-# sockets.
-#
-# By default protected mode is enabled. You should disable it only if
-# you are sure you want clients from other hosts to connect to Redis
-# even if no authentication is configured, nor a specific set of interfaces
-# are explicitly listed using the "bind" directive.
-protected-mode yes
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
 
-# Accept connections on the specified port, default is 6379 (IANA #815344).
-# If port 0 is specified Redis will not listen on a TCP socket.
-port 6379
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> 
+> 
 
-# TCP listen() backlog.
 #
-# In high requests-per-second environments you need an high backlog in order
-# to avoid slow clients connections issues. Note that the Linux kernel
-# will silently truncate it to the value of /proc/sys/net/core/somaxconn so
-# make sure to raise both the value of somaxconn and tcp_max_syn_backlog
-# in order to get the desired effect.
-tcp-backlog 511
 
-# Unix socket.
+######## FOOBAR-- below the mongo - shell which is from within default Ubuntu Repositories ? 
 #
-# Specify the path for the Unix socket that will be used to listen for
-# incoming connections. There is no default, so Redis will not listen
-# on a unix socket when not specified.
-#
-# unixsocket /var/run/redis/redis-server.sock
-# unixsocketperm 700
 
-# Close the connection after a client is idle for N seconds (0 to disable)
-timeout 0
+(base) dhankar@dhankar-1:/usr/bin$ mongo
+MongoDB shell version v4.4.1
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("63602b81-52cf-4619-93c6-0d52d740647d") }
+MongoDB server version: 4.4.1
+---
+The server generated these startup warnings when booting: 
+        2020-10-02T12:45:25.670+05:30: ***** SERVER RESTARTED *****
+        2020-10-02T12:45:35.034+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2020-10-02T12:45:40.812+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
 
-# TCP keepalive.
-#
-# If non-zero, use SO_KEEPALIVE to send TCP ACKs to clients in absence
-# of communication. This is useful for two reasons:
-#
-# 1) Detect dead peers.
-# 2) Take the connection alive from the point of view of network
-#    equipment in the middle.
-#
-# On Linux, the specified value (in seconds) is the period used to send ACKs.
-# Note that to close the connection the double of the time is needed.
-# On other kernels the period depends on the kernel configuration.
-#
-# A reasonable value for this option is 300 seconds, which is the new
-# Redis default starting with Redis 3.2.1.
-tcp-keepalive 300
-```
-#
-```
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> 
+> 
+
 ```
 #
 
