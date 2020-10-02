@@ -37,6 +37,45 @@ import json, csv, sys, os , time
 #sys.path.append(os.getcwd()+'/classes')
 #import conn
 
+""" Source - https://api.mongodb.com/python/current/tutorial.html """
+from pymongo import MongoClient
+client = MongoClient('localhost', port=27017) 
+#print(type(client)) #<class 'pymongo.mongo_client.MongoClient'>
+""" Alternative -URI Format -MongoClient('mongodb://localhost:27017/')"""
+#flask_test.coll_1.insert({name: "Rohit Dhankar", alias: 'rd'})
+
+db = client['flask_test'] #access databases using attribute style access on MongoClient instances
+collection = db.coll_1
+#print(collection)
+#Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'flask_test'), 'coll_1')
+insert_dict = {'name': "Rohit Dhankar_1", 'alias': 'rd_1'}
+result = collection.insert_one(insert_dict)
+# Above - exact same Record will get inserted Multiple Times with a DIFF = _id
+"""
+{'_id': ObjectId('5f7752b8fafb9872d45dab6a'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+{'_id': ObjectId('5f7753eb4cf20aa6747190e0'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+{'_id': ObjectId('5f7754151e2fdb708aec17fd'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+{'_id': ObjectId('5f77545efadd4c73f2a00fdf'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+{'_id': ObjectId('5f77551b07b3516a62e85e1c'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+"""
+print('Record Inserted : {0}'.format(result.inserted_id))
+#Record Inserted : 5f7752b8fafb9872d45dab6a
+print(collection.find_one())
+#{'_id': ObjectId('5f774e4b94c9da14793d06a7'), 'name': 'Rohit Dhankar', 'alias': 'rd'}
+for doc_test in collection.find():
+    print(doc_test)
+"""
+{'_id': ObjectId('5f7752b8fafb9872d45dab6a'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+{'_id': ObjectId('5f7753eb4cf20aa6747190e0'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+{'_id': ObjectId('5f7754151e2fdb708aec17fd'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+{'_id': ObjectId('5f77545efadd4c73f2a00fdf'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+{'_id': ObjectId('5f77551b07b3516a62e85e1c'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
+"""
+
+
+
+
+
 def read_dict(f):#, h):
     input_file = csv.DictReader(open(f))#, fieldnames=h)
     #print(type(input_file)) #<class 'csv.DictReader'>
@@ -65,7 +104,6 @@ def dump_json(file_json, dict_input):
     with open(file_json, 'w') as file_json:
         start_time = time.process_time()# DEPRECATED - time.clock()
         json.dump(dict_input, file_json)
-<<<<<<< HEAD
         end_time = time.process_time()# DEPRECATED - time.clock()
         #
         time_diff = end_time - start_time
@@ -73,8 +111,6 @@ def dump_json(file_json, dict_input):
         #-----time_diff------ 12.416963380000002 (699 MB CSV File)
         #-----time_diff------ 0.662583566 (8 MB CSV File)
         #-----time_diff------ 0.00028367600000000007 ( mtcars)
-=======
->>>>>>> 4bf27e9e71e76ec505c0dfac879a55bc621b5c0b
         # FOOBAR - Use -- json.dumps(dict_input, file_json) 
         # Faster - Need to Timeit
 

@@ -341,6 +341,21 @@ The server generated these startup warnings when booting:
 
 #
 ```
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> 
+> use flask_test
+switched to db flask_test
+> 
+> db.coll_1.insert({name: "Rohit Dhankar", alias: 'rd'})
+WriteResult({ "nInserted" : 1 })
+> 
+> db
+flask_test
+> 
+
 ```
 #
 
