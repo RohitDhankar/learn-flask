@@ -14,8 +14,26 @@ Source - https://docs.python.org/3/library/csv.html#csv.DictReader
       Regardless of how the fieldnames are determined, 
       the dictionary preserves their original ordering.
 """
+
+"""
+Source -- https://docs.python.org/3/library/json.html
+Note - 
+JSON is a subset of YAML 1.2. The JSON produced by this module’s default settings (in particular, the default separators value) is also a subset of YAML 1.0 and 1.1. This module can thus also be used as a YAML serializer.
+Note - 
+This module’s encoders and decoders preserve input and output order by default. Order is only lost if the underlying containers are unordered.
+Prior to Python 3.7, dict was not guaranteed to be ordered, so inputs and outputs were typically scrambled unless collections.OrderedDict was specifically requested. Starting with Python 3.7, the regular dict became order preserving, so it is no longer necessary to specify collections.OrderedDict for JSON generation and parsing.
+
+"""
+
+"""
+SOURCE -- https://stackoverflow.com/questions/36059194/what-is-the-difference-between-json-dump-and-json-dumps-in-python
+## FOOBAR -- Read Further seems dumps - is Faster though eats more memory 
+
+If you want to dump the JSON into a file/socket or whatever, then you should go with dump(). 
+If you only need it as a string (for printing, parsing or whatever) then use dumps() (dump string)
+"""
     
-import json, csv, sys, os
+import json, csv, sys, os , time
 #sys.path.append(os.getcwd()+'/classes')
 #import conn
 
@@ -24,17 +42,38 @@ def read_dict(f):#, h):
     #print(type(input_file)) #<class 'csv.DictReader'>
     return (input_file)
 
-def conv_reg_dict(order_dict_in):
-    print(type(order_dict_in))
-    print(order_dict_in.item()[0])
-    return [dict(x) for x in d]
-    #Function conv_reg_dict() converts a list of OrderedDict elements to a list of
+def conv_reg_dict(ls_order_dict_input):
+    """
+    #Function conv_reg_dict() converts a -- list of OrderedDict elements -- to a list of
     #regular dictionary elements (for easier processing).
-
+    #
+    # dict_ls == Its a LIST of DICTS - the DICT at Element 0 (for the mtcars.csv) is as seen below 
+    Its the FIRST DATA ROW of the mtcars.csv File , the Column Labels are now DICT KEYS 
+    and the FIRST DATA ROW is VALUES
+     
+    # {'model': 'Mazda RX4', 'mpg': '21', 'cyl': '6', 
+    'disp': '160', 'hp': '110', 'drat': '3.9', 
+    'wt': '2.62', 'qsec': '16.46', 'vs': '0', 'am': '1', 'gear': '4', 'carb': '4'}
+    """
+    #print(ls_order_dict_input) #<csv.DictReader object at 0x7ff20c538e20>
+    #print(type(order_dict_in)) #<class 'csv.DictReader'>
+    #print(order_dict_in.item()[0])
+    return [dict(x) for x in ls_order_dict_input]
+    
 def dump_json(file_json, dict_input):
     """ writes JSON data to disk"""
     with open(file_json, 'w') as file_json:
+        start_time = time.process_time()# DEPRECATED - time.clock()
         json.dump(dict_input, file_json)
+        end_time = time.process_time()# DEPRECATED - time.clock()
+        #
+        time_diff = end_time - start_time
+        print("-----time_diff------",time_diff)
+        #-----time_diff------ 12.416963380000002 (699 MB CSV File)
+        #-----time_diff------ 0.662583566 (8 MB CSV File)
+        #-----time_diff------ 0.00028367600000000007 ( mtcars)
+        # FOOBAR - Use -- json.dumps(dict_input, file_json) 
+        # Faster - Need to Timeit
 
 def read_json(f):
     """ reads JSON data from disk"""
@@ -42,19 +81,25 @@ def read_json(f):
         return json.load(f)
 
 if __name__ == '__main__':
-    csv_file_in = '/home/dhankar/temp/flask/1/learn-flask/mysql/csvData/mtcars.csv' # FoobarABS path -- change t relative
-    #headers = ['first', 'last'] # this is Read from File FIRST ROW if left as None
+    #csv_file_in = '/home/dhankar/temp/flask/1/learn-flask/mysql/csvData/mtcars.csv' # FoobarABS path -- change t relative
+    csv_file_in = '/home/dhankar/temp/flask/1/learn-flask/mongo_testData/train.csv' # 8 MB File Size
+    #csv_file_in = '/home/dhankar/temp/flask/1/learn-flask/mongo_testData/a_z_handwritten_data.csv' # 699 MB File Size
+    
+    #headers = ['first', 'last'] # this is Read from File FIRST ROW if - fieldnames- left as None
     # Above line - headers == fieldnames of the == class 'csv.DictReader' -- FOOBAR See comment above 
     r_dict = read_dict(csv_file_in)#, headers)
     #print("--type(r_dict)---",type(r_dict)) #<class 'csv.DictReader'>
     #
     dict_ls = conv_reg_dict(r_dict)
     print("---type(dict_ls)---",type(dict_ls)) #<class 'list'>
+    print("---type(dict_ls)---",dict_ls[0]) #
+    
     json_file = '/home/dhankar/temp/flask/1/learn-flask/mongo_testData/test.json'
     dump_json(json_file, dict_ls) #def dump_json(file_json, dict_input):
     data = read_json(json_file)
-    print(type(data)) # <class 'list'>
-    print(data)
+    #print(type(data)) # <class 'list'>
+    print("          "*10)
+    #print(data)
 
 
     # obj = conn.conn('test')
