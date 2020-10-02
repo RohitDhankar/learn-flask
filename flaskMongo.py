@@ -24,8 +24,12 @@ def read_dict(f):#, h):
     #print(type(input_file)) #<class 'csv.DictReader'>
     return (input_file)
 
-def conv_reg_dict(d):
+def conv_reg_dict(order_dict_in):
+    print(type(order_dict_in))
+    print(order_dict_in.item()[0])
     return [dict(x) for x in d]
+    #Function conv_reg_dict() converts a list of OrderedDict elements to a list of
+    #regular dictionary elements (for easier processing).
 
 def dump_json(file_json, dict_input):
     """ writes JSON data to disk"""
@@ -45,6 +49,7 @@ if __name__ == '__main__':
     #print("--type(r_dict)---",type(r_dict)) #<class 'csv.DictReader'>
     #
     dict_ls = conv_reg_dict(r_dict)
+    print("---type(dict_ls)---",type(dict_ls)) #<class 'list'>
     json_file = '/home/dhankar/temp/flask/1/learn-flask/mongo_testData/test.json'
     dump_json(json_file, dict_ls) #def dump_json(file_json, dict_input):
     data = read_json(json_file)
