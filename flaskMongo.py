@@ -65,6 +65,7 @@ def dump_json(file_json, dict_input):
     with open(file_json, 'w') as file_json:
         start_time = time.process_time()# DEPRECATED - time.clock()
         json.dump(dict_input, file_json)
+<<<<<<< HEAD
         end_time = time.process_time()# DEPRECATED - time.clock()
         #
         time_diff = end_time - start_time
@@ -72,6 +73,8 @@ def dump_json(file_json, dict_input):
         #-----time_diff------ 12.416963380000002 (699 MB CSV File)
         #-----time_diff------ 0.662583566 (8 MB CSV File)
         #-----time_diff------ 0.00028367600000000007 ( mtcars)
+=======
+>>>>>>> 4bf27e9e71e76ec505c0dfac879a55bc621b5c0b
         # FOOBAR - Use -- json.dumps(dict_input, file_json) 
         # Faster - Need to Timeit
 
