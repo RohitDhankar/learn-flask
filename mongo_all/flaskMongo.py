@@ -50,7 +50,7 @@ collection = db.coll_1
 #Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'flask_test'), 'coll_1')
 insert_dict = {'name': "Rohit Dhankar_1", 'alias': 'rd_1'}
 result = collection.insert_one(insert_dict)
-# Above - exact same Record will get inserted Multiple Times with a DIFF = _id
+# Above - exact same Record will get inserted Multiple Times with a DIFF = _id = '_id': ObjectId(
 """
 {'_id': ObjectId('5f7752b8fafb9872d45dab6a'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
 {'_id': ObjectId('5f7753eb4cf20aa6747190e0'), 'name': 'Rohit Dhankar_1', 'alias': 'rd_1'}
