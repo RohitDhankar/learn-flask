@@ -1,8 +1,14 @@
+##### Following the Digital Ocean Tute - intentionally not creating the Project in the default -- /var/www/ - DIR , but a dummy DIR i the Current Working DIR -- /var_dummy/www_dummy/
+
+- Partial Source -- https://www.digitalocean.com/community/tutorials/how-to-build-and-deploy-a-flask-application-using-docker-on-ubuntu-18-04
+
+
 ```
 $ which docker
 /usr/bin/docker
 $ docker --version
 Docker version 19.03.12, build 48a66213fe
+
 $ sudo docker pull mongo
 [sudo] password for dhankar: 
 Using default tag: latest
@@ -144,13 +150,42 @@ switched to db flask_test
 > 
 ```
 ```
+
+
 #
 ```
+$ sudo docker ps
+[sudo] password for dhankar: 
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+b664208c5e60        redis               "docker-entrypoint.s…"   2 months ago        Up 25 minutes       6379/tcp            broker
+
+#### FOOBAR--- note / CTRL + F --  the CONTAINER ID STRING -- 366d328871c3 -- below 
+
+$ sudo docker run -it -d mongo
+366d328871c3179be448fbf7c8b15d5a7bd3cd62970ea303b4dee90d3fa28c4d
+$ sudo docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+366d328871c3        mongo               "docker-entrypoint.s…"   5 seconds ago       Up 2 seconds        27017/tcp           mystifying_goldstine
+b664208c5e60        redis               "docker-entrypoint.s…"   2 months ago        Up 25 minutes       6379/tcp            broker
+$ 
+$ sudo docker images
+REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+mongo                        latest              ba0c2ff8d362        8 days ago          492MB
+opendronemap/webodm_webapp   latest              96e495184451        2 months ago        2.77GB
+opendronemap/nodeodm         latest              735a7085ce6a        2 months ago        3.61GB
+redis                        latest              235592615444        3 months ago        104MB
+hello-world                  latest              bf756fb1ae65        9 months ago        13.3kB
+opendronemap/webodm_db       latest              7cf185d87821        3 years ago         609MB
+$ 
+$ sudo docker exec -it mystifying_goldstine bash
+root@366d328871c3:/# 
+
 ```
 #
 
 #
 ```
+
 ```
 #
 ```
