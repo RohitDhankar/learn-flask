@@ -2,15 +2,15 @@
 - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 
 ```
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+$ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
 [sudo] password for dhankar: 
 OK
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ touch /etc/apt/sources.list.d/mongodb-org-4.4.list
+$ touch /etc/apt/sources.list.d/mongodb-org-4.4.list
 touch: cannot touch '/etc/apt/sources.list.d/mongodb-org-4.4.list': Permission denied
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ sudo touch /etc/apt/sources.list.d/mongodb-org-4.4.list
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ cd /etc/apt/sources.list.d/mongodb-org-4.4.list
+$ sudo touch /etc/apt/sources.list.d/mongodb-org-4.4.list
+$ cd /etc/apt/sources.list.d/mongodb-org-4.4.list
 bash: cd: /etc/apt/sources.list.d/mongodb-org-4.4.list: Not a directory
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ cd /etc/apt/sources.list.d/
+$ cd /etc/apt/sources.list.d/
 (base) dhankar@dhankar-1:/etc/apt/sources.list.d$ ls -ltr
 total 100
 -rw-r--r-- 1 root root 193 Jul 30 11:51 slack.list.save
@@ -42,7 +42,7 @@ total 100
 (base) dhankar@dhankar-1:/etc/apt/sources.list.d$ 
 (base) dhankar@dhankar-1:/etc/apt/sources.list.d$ cd -
 /home/dhankar/temp/flask/learn-flask
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ sudo apt-get update
+$ sudo apt-get update
 Get:1 file:/var/cuda-repo-ubuntu1804-11-0-local  InRelease
 Ign:1 file:/var/cuda-repo-ubuntu1804-11-0-local  InRelease
 Get:2 file:/var/cuda-repo-ubuntu1804-11-0-local  Release [564 B]
@@ -100,9 +100,9 @@ W: GPG error: https://deb.torproject.org/torproject.org bionic InRelease: The fo
 E: The repository 'https://deb.torproject.org/torproject.org bionic InRelease' is not signed.
 N: Updating from such a repository can't be done securely, and is therefore disabled by default.
 N: See apt-secure(8) manpage for repository creation and user configuration details.
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ 
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask$ code .
-(base) dhankar@dhankar-1:~/temp/flask/learn-flask
+$ 
+$ code .
+
 ```
 #
 - content of the file = /etc/apt/sources.list.d/mongodb-org-4.4.list
