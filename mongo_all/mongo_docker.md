@@ -1,4 +1,4 @@
-##### Following the Digital Ocean Tute - intentionally not creating the Project in the default -- /var/www/ - DIR , but a dummy DIR i the Current Working DIR -- /var_dummy/www_dummy/
+##### Following the Digital Ocean Tute - intentionally not creating the Project in the default -- /var/www/ - DIR , but a dummy DIR in the Current Working DIR -- /var_dummy/www_dummy/
 
 - Partial Source -- https://www.digitalocean.com/community/tutorials/how-to-build-and-deploy-a-flask-application-using-docker-on-ubuntu-18-04
 
@@ -112,6 +112,7 @@ root@6d0ffb3e4f61:/#
 
 ```
 #
+```
 root@6d0ffb3e4f61:/# mongo
 MongoDB shell version v4.4.1
 connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
@@ -123,12 +124,10 @@ For more comprehensive documentation, see
 	https://docs.mongodb.com/
 Questions? Try the MongoDB Developer Community Forums
 	https://community.mongodb.com
----
+
 The server generated these startup warnings when booting: 
         2020-10-03T12:04:49.738+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
         2020-10-03T12:04:51.006+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
----
----
         Enable MongoDB's free cloud-based monitoring service, which will then receive and display
         metrics about your deployment (disk utilization, CPU, operation statistics, etc).
 
@@ -138,7 +137,6 @@ The server generated these startup warnings when booting:
 
         To enable free monitoring, run the following command: db.enableFreeMonitoring()
         To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
----
 > 
 > show dbs
 admin   0.000GB
@@ -149,8 +147,6 @@ local   0.000GB
 switched to db flask_test
 > 
 ```
-```
-
 
 #
 ```
