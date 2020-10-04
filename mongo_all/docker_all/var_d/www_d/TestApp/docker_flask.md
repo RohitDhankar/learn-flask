@@ -15,8 +15,17 @@
 
 6 directories, 3 files
 ```
-#
+##### FOOBAR - Important note about the Flask Docker Image 
+- 400% (4x) the performance of this image (tiangolo/uwsgi-nginx-flask)
+- Source - https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask
+
+> If you need to use Flask (instead of something based on ASGI) and you need to have the best performance possible, you can use the alternative image: tiangolo/meinheld-gunicorn-flask.
+
+tiangolo/meinheld-gunicorn-flask will give you about 400% (4x) the performance of this image (tiangolo/uwsgi-nginx-flask).
+
 ```
+
+
 ```
 #
 ```
